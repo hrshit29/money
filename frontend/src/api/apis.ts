@@ -1,6 +1,7 @@
 // Define your base URL here
-const BASE_URL = import.meta.env.VITE_API_URL;
-;
+const BASE_URL = "https://money-x-delta.vercel.app/api/v1";
+
+
 
 // Auth endpoints
 export const AUTH_API = {
