@@ -3,15 +3,14 @@ import mongoose from 'mongoose';
 export const connectDB = async (): Promise<void> => {
   try {
     mongoose.set('strictQuery', false);
-    await mongoose.connect('mongodb://localhost:27017/expenses');
-    console.log('DB Connected');
+    const mongoUri = process.env.MONGO_URI;
+    if (!mongoUri) throw new Error("Missing MONGO_URI in .env");
+    await mongoose.connect(mongoUri);
+    console.log('✅ DB Connected');
   } catch (error) {
-    console.error('DB Connection Error:', error);
+    console.error('❌ DB Connection Error:', error);
   }
 };
-
-
-
 
 
 
