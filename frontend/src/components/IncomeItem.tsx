@@ -5,7 +5,7 @@ import { trash } from '../help/icons';
 type Props = {
   id: string;
   title: string;
-  description: string;
+  description?: string;
   amount: number;
   date: string;
   type: 'income' | 'expense';
