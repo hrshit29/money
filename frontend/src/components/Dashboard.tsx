@@ -200,14 +200,15 @@ const Dashboard: React.FC = () => {
               <p>₹{Math.max(...incomes.map(item => item.amount)) || 0}</p>
             </MinMaxWrapper>
           </div>
-
+             <p>₹{incomes.length > 0? Math.min(...incomes.map(item => Number(item.amount))): 0}</p>
+             <p>₹{incomes.length > 0? Math.max(...incomes.map(item => Number(item.amount))): 0}</p>
           <div>
             <MinMaxTitle>
               Min <span><HighlightRed>Expense</HighlightRed></span> Max
             </MinMaxTitle>
             <MinMaxWrapper>
-              <p>₹{Math.min(...expenses.map(item => item.amount)) || 0}</p>
-              <p>₹{Math.max(...expenses.map(item => item.amount)) || 0}</p>
+              <p>₹{expenses.length > 0? Math.min(...expenses.map(item => Number(item.amount))): 0}</p>
+              <p>₹{expenses.length > 0? Math.max(...expenses.map(item => Number(item.amount))): 0}</p>
             </MinMaxWrapper>
           </div>
         </HistorySection>
