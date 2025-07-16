@@ -8,7 +8,7 @@ type Props = {
   amount: number;
   date: string;
   category: string;
-  description: string;
+  description?: string;
   deleteItem: (id: string) => Promise<void>;
 };
 
