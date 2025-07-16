@@ -13,7 +13,7 @@ interface InputState {
   amount: string;
   date: Date | null;
   category: string;
-  description: string;
+  description?: string;
 }
 
 const FormWrapper = styled.div<{ themeMode: string }>`
