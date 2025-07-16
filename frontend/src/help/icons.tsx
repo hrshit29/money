@@ -23,6 +23,7 @@ import {
   faShirt,
   faBookOpen,
   faBowlFood,
+  faRupeeSign,
   faBriefcaseMedical,
   faTv,
   faCircleDot,
@@ -53,7 +54,7 @@ export const piggy = <FontAwesomeIcon icon={faPiggyBank} />;
 export const yt = <FontAwesomeIcon icon={faYoutube} />;
 export const card = <FontAwesomeIcon icon={faCcVisa} />;
 export const users = <FontAwesomeIcon icon={faUsersBetweenLines} />;
-export const dollar = <FontAwesomeIcon icon={faDollarSign} />;
+export const dollar = <FontAwesomeIcon icon={faRupeeSign} />;
 export const calender = <FontAwesomeIcon icon={faCalendar} />;
 export const comment = <FontAwesomeIcon icon={faComment} />;
 export const plus = <FontAwesomeIcon icon={faPlus} />;
