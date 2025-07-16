@@ -10,6 +10,12 @@ dotenv.config();
 
 const app: Application = express();
 
+app.use(cors({
+  origin: "https://money-hazel.vercel.app", // or '*' for testing
+  credentials: true
+}));
+
+
 // Middleware
 app.use(express.json());
 app.use(cors());
