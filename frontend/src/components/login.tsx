@@ -172,7 +172,7 @@ const Login: React.FC = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <ToggleIcon onClick={() => setShowPassword(!showPassword)}>
-              {showPassword ? <AiFillEyeInvisible size={20} /> : <AiFillEye size={20} />}
+              {showPassword ? <AiFillEye size={20} /> : <AiFillEyeInvisible size={20} />}
             </ToggleIcon>
           </StyledInputWrapper>
 
