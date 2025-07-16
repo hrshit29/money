@@ -17,11 +17,14 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         mongoose_1.default.set('strictQuery', false);
-        yield mongoose_1.default.connect('mongodb://localhost:27017/expenses');
-        console.log('DB Connected');
+        const mongoUri = process.env.MONGO_URI;
+        if (!mongoUri)
+            throw new Error("Missing MONGO_URI in .env");
+        yield mongoose_1.default.connect(mongoUri);
+        console.log('✅ DB Connected');
     }
     catch (error) {
-        console.error('DB Connection Error:', error);
+        console.error('❌ DB Connection Error:', error);
     }
 });
 exports.connectDB = connectDB;
