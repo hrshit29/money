@@ -5,35 +5,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const auth_1 = __importDefault(require("./routes/auth"));
 const transaction_1 = __importDefault(require("./routes/transaction"));
+const db_1 = require("./db");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-// Middleware
+app.use((0, cors_1.default)({
+    origin: "*",
+    credentials: true
+}));
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
-app.set('trust proxy', true); //
-// Routes
+app.set('trust proxy', true);
 app.use("/api/v1/auth", auth_1.default);
 app.use("/api/v1", transaction_1.default);
-// Connect to MongoDB
-mongoose_1.default
-    .connect("mongodb://localhost:27017/expenses", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}) // 👈 Cast for strict TS
-    .then(() => {
-    console.log("MongoDB connected successfully");
-})
-    .catch((error) => {
-    console.error("MongoDB connection error:", error);
-});
-// Start server
+(0, db_1.connectDB)();
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
 });
 // import express from"express";
 // import mongoose from "mongoose";
