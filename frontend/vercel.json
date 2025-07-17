@@ -3,7 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://money-x-delta.vercel.app/api/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
     }
   ]
 }
-
